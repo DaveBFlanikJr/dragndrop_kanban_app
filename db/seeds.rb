@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Card.destroy_all
+KanbanColumn.destroy_all
+Kanban.destroy_all
+
+my_kanban = Kanban.create(
+  name: "New Lamborgucci project",
+  description: "Project to build the most beautiful car ever made.",
+);
+
+backlog = KanbanColumn.create(
+  name: "Backlog",
+  kanban: my_kanban
+)
+Card.create(content: "Build engine", position: 0, kanban_column: backlog)
+Card.create(content: "Purchese the tires", position: 1, kanban_column: backlog)
+Card.create(content: "Code the cockpit software", position: 2, kanban_column: backlog)
+
+todo = KanbanColumn.create(
+  name: "To Do",
+  kanban: my_kanban
+)
+Card.create(content: "Desigin the car", position: 0, kanban_column: todo)
+
+completed = KanbanColumn.create(
+  name: "Completed",
+  kanban: my_kanban
+)
+Card.create(content: "Build the engineer team", position: 0, kanban_column: completed)
+Card.create(content: "Find fundings", position: 1, kanban_column: completed)
