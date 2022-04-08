@@ -15,8 +15,6 @@
   <%= @kanban.cards %>
 </p>
 
-<%= link_to 'Edit', edit_kanban_path(@kanban) %> |
-<%= link_to 'Back', kanbans_path %>
 
 <div class="kanban" data-id="<%= @kanban.id %>">
   <% @kanban.kanban_columns.each do |column| %>
@@ -30,3 +28,6 @@
     </ul>
   <% end %>
 </div>
+
+<%= link_to 'Edit', edit_kanban_path(@kanban) %> |
+<%= link_to 'Back', kanbans_path %>
