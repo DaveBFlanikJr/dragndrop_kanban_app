@@ -15,6 +15,10 @@
   <%= @kanban.cards %>
 </p>
 
+<%= form_with url: kanban_sort_path, method: :patch do |f| %>
+  <%= f.text_field 'kandban[kanbanIds]', class: "kanban-form-input"  %>
+    <%= f.submit "saved changes" %>
+ <% end %>
 
 <div class="kanban" data-id="<%= @kanban.id %>">
   <% @kanban.kanban_columns.each do |column| %>

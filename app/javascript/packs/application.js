@@ -16,9 +16,10 @@ import "controllers"
 import "bootstrap"
 import { initKanbanSortable } from "../plugins/initSortable"
 
-document.addEventListener('turbolinks:load', () => {
-  const kanbanUls = document.querySelectorAll(".kanban .kanban-col");
-    if (kanbanUls) {
+// in order to link the initKanbanSortable
+document.addEventListener('turbolinks:load', () => { // listen for the load
+  const kanbanUls = document.querySelectorAll(".kanban .kanban-col"); // create new function then select the CSS elemetns
+    if (kanbanUls) { // if true the initKanbanSortable will be called
       initKanbanSortable(kanbanUls);
     }
 });
