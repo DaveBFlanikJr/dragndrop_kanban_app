@@ -14,3 +14,11 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+import { initKanbanSortable } from "../plugins/initSortable"
+
+document.addEventListener('turbolinks:load', () => {
+  const kanbanUls = document.querySelectorAll(".kanban .kanban-col");
+    if (kanbanUls) {
+      initKanbanSortable(kanbanUls);
+    }
+});
